@@ -1,58 +1,85 @@
-import { View, Text, Pressable, StyleSheet, Alert } from 'react-native';
+import { View, Text, Pressable, StyleSheet } from 'react-native';
 import { router } from 'expo-router';
-import { signOut } from 'firebase/auth';
-import { auth } from '../../services/firebase';
 
 export default function HomeScreen() {
-  const handleLogout = async () => {
-    try {
-      await signOut(auth);
-      router.replace('/(auth)/login');
-    } catch (error: any) {
-      Alert.alert('Logout failed', error.message || 'Something went wrong.');
-    }
-  };
-
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Welcome to Pause Protocol</Text>
-      <Text style={styles.subtitle}>You are logged in.</Text>
+    <View style={styles.screen}>
+      <View style={styles.container}>
+        <Text style={styles.title}>Pause Protocol</Text>
+        <Text style={styles.subtitle}>
+          Choose where you want to go next.
+        </Text>
 
-      <Pressable style={styles.button} onPress={handleLogout}>
-        <Text style={styles.buttonText}>Log Out</Text>
-      </Pressable>
+        <Pressable
+          style={styles.primaryButton}
+          onPress={() => router.push('/(app)/pause')}
+        >
+          <Text style={styles.primaryButtonText}>Pause</Text>
+        </Pressable>
+
+        <Pressable
+          style={styles.primaryButton}
+          onPress={() => router.push('/(app)/reflect')}
+        >
+          <Text style={styles.primaryButtonText}>Reflect</Text>
+        </Pressable>
+
+        <Pressable
+          style={styles.secondaryButton}
+          onPress={() => router.push('/(app)/profile')}
+        >
+          <Text style={styles.secondaryButtonText}>Profile</Text>
+        </Pressable>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  screen: {
     flex: 1,
     backgroundColor: '#ffffff',
-    justifyContent: 'center',
+  },
+  container: {
+    flex: 1,
     paddingHorizontal: 24,
+    paddingTop: 100,
   },
   title: {
-    fontSize: 30,
+    fontSize: 32,
     fontWeight: '700',
     textAlign: 'center',
+    color: '#111111',
     marginBottom: 8,
   },
   subtitle: {
     fontSize: 16,
-    color: '#666',
     textAlign: 'center',
+    color: '#666666',
     marginBottom: 32,
   },
-  button: {
-    backgroundColor: '#222',
-    paddingVertical: 14,
-    borderRadius: 10,
+  primaryButton: {
+    backgroundColor: '#111111',
+    borderRadius: 14,
+    paddingVertical: 16,
+    marginBottom: 14,
   },
-  buttonText: {
-    color: '#fff',
+  primaryButtonText: {
+    color: '#ffffff',
     textAlign: 'center',
     fontSize: 16,
     fontWeight: '600',
+  },
+  secondaryButton: {
+    borderWidth: 1,
+    borderColor: '#d6d6d6',
+    borderRadius: 14,
+    paddingVertical: 16,
+  },
+  secondaryButtonText: {
+    textAlign: 'center',
+    color: '#111111',
+    fontSize: 16,
+    fontWeight: '500',
   },
 });
