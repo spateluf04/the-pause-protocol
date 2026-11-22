@@ -46,7 +46,9 @@ export default function ProfileScreen() {
     const user = auth.currentUser;
     if (!user) return;
 
-    if (true /* admin code removed: assign admins server-side */) {
+    // Admin code removed: assign admins server-side (Firebase console or Admin SDK).
+    const adminCodeEnabled = false;
+    if (!adminCodeEnabled) {
       Alert.alert('Invalid Code', 'That code is incorrect. Please try again.');
       return;
     }
