@@ -50,7 +50,7 @@ The shortcut keeps cooldowns in a small `cooldowns.json` file in the user's iClo
 
 | Area | Tools |
 |---|---|
-| App | Expo SDK 54, React Native 0.81, React 19, TypeScript |
+| App | Expo SDK 58, React Native 0.88, React 19.3, TypeScript |
 | Navigation | Expo Router (file-based routing) |
 | Backend | Firebase Authentication, Cloud Firestore |
 | Scripts | Node.js and the `firebase-admin` SDK (quote seeding) |
@@ -59,7 +59,7 @@ The shortcut keeps cooldowns in a small `cooldowns.json` file in the user's iClo
 
 ### Prerequisites
 
-- Node.js 18 or newer
+- Node.js 22.13 or newer
 - The [Expo Go](https://expo.dev/go) app, or an iOS or Android simulator
 - A Firebase project of your own
 
