@@ -156,3 +156,7 @@ Built as a software engineering group project by:
 - Samir Patel ([@spateluf04](https://github.com/spateluf04))
 - Dipak Mehta ([@Dmehta06](https://github.com/Dmehta06))
 - Kush ([@kushp163](https://github.com/kushp163))
+
+## License
+
+Released under the [MIT License](LICENSE).
